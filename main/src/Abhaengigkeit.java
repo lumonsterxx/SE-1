@@ -1,21 +1,36 @@
-public class Abhaengigkeit implements AbhaengigkeitInterface{
+import java.util.LinkedList;
 
-    String[][] ab;
+public class Abhaengigkeit extends LinkedList<String[]> implements AbhaengigkeitInterface {
+
+    LinkedList<String[]> ab = new LinkedList<>();
 
     public Abhaengigkeit(String[][] strings) {
-        ab = strings;
+        for(int i = 0; i < strings.length; i++) {
+            ab.add(strings[i]);
+        }
+        transitivitaetenRechner();
+    }
+
+    public void transitivitaetenRechner() {
+        int temp = ab.size();
+        for(int i = 0; i < temp; i++) {
+            for(int j = 0; j < temp; j++) {
+                if(ab.get(i)[1].equals(ab.get(j)[0]))
+                    ab.add(new String[]{ab.get(i)[0], ab.get(j)[1]});
+            }
+        }
     }
 
     @Override
     public boolean isWellSorted(String[] sequence) {
-        for(int i = 0; i < ab.length; i++) {                //Doppeltes array durchgehen
-            int count = 0;                                  //counter um die sequence durch zu gehen und die buchstaben in der richtigen Abhängigkeit zu suchen
-            for(int j = 0; j < ab[i].length; j++) {         //Inneres Array vom doppelten array durchgehe
-                for(;count < sequence.length; count++) {    //Sequence durchgehen
-                    if(sequence[count].equals(ab[i][j]))    //falls der richtige buchstabe gefunden wurde, wird von der stelle de nächste gesucht
+        for(int i = 0; i < ab.size(); i++) {
+            int tempcount = 0;
+            for(int j = 0; j < 2; j++) {
+                for(;tempcount < sequence.length; tempcount++) {
+                    if(sequence[tempcount].equals(ab.get(i)[j]))
                         break;
                 }
-                if(count == sequence.length)                //falls dieser jedoch nicht gefunden wurde, da er vor der anderen war, wird false ausgegeben, da es dann die falsche reihenfolge war
+                if(tempcount == sequence.length)
                     return false;
             }
         }
