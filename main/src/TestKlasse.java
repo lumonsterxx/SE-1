@@ -21,8 +21,10 @@ public class TestKlasse {
 
     @Test
     public void testIsWellSorted(){
+        boolean test3 = a.isWellSorted(new String[]{"D","A","C"});
         boolean test1 = a.isWellSorted(new String[]{"A","B","C","D"});
         boolean test2 = a.isWellSorted(new String[]{"D","C","B","A"});
+        assertFalse(test3,"D kommt vor C");
         assertTrue(test1,"Error :( Sollte true sein, ist aber false");
         assertFalse(test2,"Error :( Sollte false sein, ist aber true");
     }
