@@ -11,7 +11,8 @@ public class TestKlasse {
 
     @BeforeEach
     public void before(){
-        a = new Abhaengigkeit(new String[][]{{"A","C"},{"C","D"},{"B","C"}});
+        a = new Abhaengigkeit(new String[][]{{"A","C"},{"C","D"},{"B","C"},});
+
     }
 
     @AfterEach
@@ -27,6 +28,14 @@ public class TestKlasse {
         assertFalse(test3,"D kommt vor C");
         assertTrue(test1,"Error :( Sollte true sein, ist aber false");
         assertFalse(test2,"Error :( Sollte false sein, ist aber true");
+    }
+
+    @Test
+    public void transitiv(){
+        a = new Abhaengigkeit(new String[][]{{"A","B"},{"B","C"}});
+        boolean test4 = a.isWellSorted(new String[]{"C","A"});
+        assertFalse(test4,"geht nicht");
+
     }
 
 
