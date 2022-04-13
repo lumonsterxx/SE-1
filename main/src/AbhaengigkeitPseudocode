@@ -1,0 +1,17 @@
+transitivitaetenRechner:
+
+temp = göße der Liste mit Abhängigkeiten
+for Anfang der Liste bis Ende der Liste
+    for Anfang der Liste bis Ende der Liste
+        wenn beide Abhängigkeiten eine Transitivität haben, dann neue Abhängigkeit in Liste einfügen
+
+
+isWellSorted(Sequence von Buchstaben):#
+
+for Anfang der Liste bis Ende der Liste
+    temp = 0 counter erstellen
+    for erstes Buchstabe der Abhängigkeit bis Zweiter Buchstabe der Abhängigkeit
+        for counter bis ender der Liste oder wenn Gleiche Buchstaben gefunden wurden
+        if Ende der sequence erreicht
+            false zurückgeben
+true zurückgeben
