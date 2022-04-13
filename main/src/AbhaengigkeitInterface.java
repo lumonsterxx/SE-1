@@ -1,3 +1,4 @@
 public interface AbhaengigkeitInterface {
-     boolean isWellSorted(String [] sequence);
+     void transitivitaetenRechner();
+     boolean isWellSorted(String[] sequence);
 }
